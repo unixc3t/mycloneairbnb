@@ -1,4 +1,4 @@
-<div class="box">
+<div class="box" data-controller="header">
 
   <div class="box1">
     <div id="nav">
@@ -39,14 +39,21 @@
       </div>
 
       <div id="info">
-        <div>
-          <button class="rounded-full bg-zinc-100 text-black text-sm">成为房东</button>
+        <div id="info_a">
+          <button class="rounded-full bg-zinc-100 text-black">成为房东</button>
           <span class="rounded-full bg-zinc-300">
             <%= image_tag("language.svg", alt: "语言") %>
           </span>
-          <span class="rounded-full bg-zinc-300">
+          <span   data-header-target="openMenu" class="menu_span rounded-full bg-zinc-300">
             <%= image_tag("menu.svg", alt: "选项") %>
           </span>
+            <div data-header-target="dropDown" id="menu_a" class="hidden bg-gray-100 py-1 px-4 text-gray-800 shadow-xl">
+              <ul>
+                <li> <a href="">Your Profile</a></li>
+                <li> <a href="">Setting</a></li>
+                <li> <a href="">Sign out</a></li>
+              </ul>
+            </div>
         </div>
       </div>
     </div>
