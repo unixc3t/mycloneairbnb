@@ -22,7 +22,10 @@
   </head>
 
   <body>
-    <%= render "layouts/header" %>
+    <%if controller_name != 'registrations' && controller_name != 'sessions' && controller_name != 'passwords'%>
+      <%= render "layouts/header" %>
+    <%end%>
+
     <!--    
     <main class="container mx-auto mt-28 px-5 flex">
     -->
