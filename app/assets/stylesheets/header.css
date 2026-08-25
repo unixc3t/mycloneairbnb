@@ -1,165 +1,135 @@
-    .box{
-      width: 100wh;
-      height: 220px;
-      border-bottom: 1px solid #e0e0e0;
-      background: linear-gradient(to top, #f9f9f9, white);
-    }
+header {
+    width: 100wh;
+    height: 200px;
+    border-bottom: 1px solid #e0e0e0;
+    background: linear-gradient(to top, #f9f9f9, white);
+}
 
-    .box1 {
-      display: flex;
-      background: linear-gradient(to top, #f9f9f9, white);
-      height: 200px;
-      width: 1200px;
-      margin: 0 auto;
-      flex-wrap: wrap;
+.header-search {
+    background: linear-gradient(to top, #f9f9f9, white);
+    height: 180px;
+    width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 200px 800px 200px;
+    gap: 10px;
+}
+.header-search div {
+    margin-top: 10px;
+}
 
-    }
+.header-search div svg {
+    fill: #ff385c;
+    margin-top: 15px;
+    margin-left: 15px;
+}
 
-    .box1 div {
-      box-sizing: border-box;
-    }
+.search {
+    font-size: 1.3rem;
+    display: grid;
+    grid-template-rows: 90px 90px;
+    justify-items: center;
+}
 
-    #nav {
-      width: 1200px;
-      height: 100px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+.search-menu ul {
+    display: flex;
+    justify-content: center;
+}
+.search-menu ul li a {
+    display: block;
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+}
+.search-menu a {
+    display: block;
+    height: 50px;
+    color: #9b9b9b;
+}
+.search-menu a:hover {
+    color: black;
+    text-decoration: dotted;
+}
 
-    }
+.search-menu img {
+    width: 60px;
+    height: 50px;
+}
+.search span {
+    margin-left: -5px;
+}
 
-    #logo {
-      padding-top: 20px;
-      padding-left: 20px;
-    }
+.search-form {
+    display: flex;
+    height: 60px;
+    width: 600px;
+    justify-content: center;
+    box-shadow: 3px 3px 20px #999;
+}
 
-    #logo svg {
-      fill: #ff385c;
-    }
+.search-find img {
+    width: 20px;
+    height: 20px;
+}
 
-    #list {
-      padding-top: 20px;
-    }
+.zl-time,
+.zl-address {
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+}
 
-    #list a {
-      display: inline-block;
-      width: 100px;
-      height: 50px;
-      text-decoration: none;
-      color: #9b9b9b;
-    }
+.zl-time span,
+.zl-address span {
+    padding-left: 5px;
+}
+.zl-people {
+    display: grid;
+    grid-template-columns: 90px 90px;
+    grid-template-rows: 20px 20px;
+    grid-template-areas:
+        "left1 right"
+        "left2 right";
+}
 
-    #list a:hover {
-      color: black;
-    }
+.zl-people span {
+    grid-area: left1;
+    padding-left: 5px;
+}
 
-    #list a img {
-      width: 50px;
-      height: 50px;
-    }
+.zl-people input {
+    grid-area: left2;
+}
 
-    #list a div {
-      display: flex;
-      align-items: center;
-      height: 50px;
-    }
+.zl-people div {
+    grid-area: right;
+    justify-self: end;
+    align-self: center;
+}
+.zl-submit {
+    width: 30px;
+    height: 30px;
+}
 
-    #info {
-      padding-top: 40px;
-      width: 180px;
-    }
+.menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 60px;
+    justify-items: center;
+    align-items: center;
+}
 
-     #info_a {
-      width: 300px;
-      display: flex;
-      margin-top: -10px;
-      flex-wrap: wrap;
-    }
-
-    #info button {
-      width: 70px;
-      height: 30px;
-    }
-
-
-    #info span {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      margin-left: 10px;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #info span img {
-      width: 20px;
-      height: 20px;
-    }
-
-    #search {
-      display: flex;
-      justify-content: center;
-      width: 1200px;
-      height: 60px;
-    }
-    #con{
-      box-shadow: 3px 3px 20px #999;
-    }
-
-    #search form {
-      display: flex;
-      margin-top: 10px;
-      align-items: start;
-      justify-content: space-around;
-      width: 800px;
-      height: 100px;
-
-    }
-
-    #address {
-      width: 200px;
-    }
-
-    #time {
-      width: 200px;
-      height: 100px;
-    }
-
-    #people {
-      display: flex;
-      width: 200px;
-      height: 100px;
-    }
-
-    #people2 {
-      width: 130px;
-      height: 100px;
-    }
-
-    #mysearch {
-      display: flex;
-      align-items: start;
-      padding-top: 10px;
-      width: 70px;
-      height: 100px;
-    }
-    #mysearch img{
-      width: 20px;
-      height: 20px;
-    }
-    #addrss div:hover{
-      color: red;
-    }
-    #menu_a{
-      margin-left: 130px;
-    }
-    #menu_a li{
-      padding-top: 10px;
-      text-align: center;
-      width: 100px;
-      height: 40px;
-    }
-
-    .hidden{
-      display: none;
-    }
+.menu div {
+    display: grid;
+    width: 50px;
+    height: 50px;
+}
+.menu button {
+    border-radius: 1px;
+}
+.menu img {
+    width: 20px;
+    justify-self: center;
+    align-self: center;
+    height: 20px;
+}

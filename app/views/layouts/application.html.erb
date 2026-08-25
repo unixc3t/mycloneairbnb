@@ -22,16 +22,25 @@
   </head>
 
   <body>
-    <%if controller_name != 'registrations' && controller_name != 'sessions' && controller_name != 'passwords'%>
-      <%= render "layouts/header" %>
-    <%end%>
+   <div class="zl-container">
+       <header>
+           <% if controller_name != 'registrations' && controller_name != 'sessions' && controller_name != 'passwords' %>
+             <%= render "layouts/header" %>
+           <% end %>
+       </header>
+       <section>
+           <p class="notice"><%= notice %></p>
+           <p class="alert"><%= alert %></p>
+           <%= yield %>
+       </section>
+       <footer>
 
-    <!--    
+       </footer>
+   </div>
+
+    <!--
     <main class="container mx-auto mt-28 px-5 flex">
     -->
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
     <!--
     </main>
     -->
