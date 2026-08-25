@@ -8,11 +8,3 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
-
-     * {
-      box-sizing: border-box;
-      font-size: 14px;
-    }
-    input {
-      outline: none;
-    }
