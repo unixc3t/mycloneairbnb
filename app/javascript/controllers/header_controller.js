@@ -11,7 +11,6 @@ export default class extends Controller {
   }
 }
 
-
-function openDropDown(element) {
+function openDropDown(element){
   toggle(element)
 }

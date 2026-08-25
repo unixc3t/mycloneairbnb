@@ -129,7 +129,25 @@ header {
 }
 .menu img {
     width: 20px;
+    height: 20px;
     justify-self: center;
     align-self: center;
-    height: 20px;
+}
+
+#click-img{
+    margin-top: -10px;
+}
+
+
+.hidden{
+    display: none;
+}
+
+.click-menu{
+    font-size: 1.3rem;
+    display: gird;
+    width: 100px;
+    height: 80px;
+    align-items: center;
+    justify-items: center;
 }

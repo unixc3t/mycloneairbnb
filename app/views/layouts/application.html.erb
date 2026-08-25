@@ -23,11 +23,11 @@
 
   <body>
    <div class="zl-container">
-       <header>
            <% if controller_name != 'registrations' && controller_name != 'sessions' && controller_name != 'passwords' %>
+       <header>
              <%= render "layouts/header" %>
-           <% end %>
        </header>
+           <% end %>
        <section>
            <p class="notice"><%= notice %></p>
            <p class="alert"><%= alert %></p>
