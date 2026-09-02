@@ -2,7 +2,7 @@
     <% @properties.each do |property| %>
         <div class="property_div">
             <div class="property_img">
-                <%= image_tag("house1.jpg", alt:"house", class: "w-full") %>
+                <%= image_tag property.images.first %>
             </div>
             <div class="property-title">
                 <h3> <%= property.name %></h3>
