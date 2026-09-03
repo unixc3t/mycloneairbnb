@@ -28,4 +28,11 @@ console.log('Visit the guide for more information: ', 'https://vite-ruby.netlify
 // import '~/index.css'
 
 
-import {swiper} from "./swiper.js";
+//import {swiper} from "./myswiper.js";
+  // Optional parameters
+  // Optional parameters
+  // Optional parameters
+  // Optional parameters
+
+// import Swiper JS
+import {swiper} from "./myswiper.js";

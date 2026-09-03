@@ -1,0 +1,47 @@
+
+.myswiper {
+  width: 100%;
+  height: 260px;
+}
+
+.myswiper:hover{
+  .swiper-button-next{
+    display:block !important;
+  }
+  .swiper-button-prev{
+    display:block !important;
+  }
+}
+
+.swiper-button-next::after{
+  content: "" !important;
+}
+
+.swiper-button-next{
+  color: white !important;
+  display:  none !important;
+  width: 2.5rem !important;
+  height:2.5rem !important;
+  background-color: white;
+  background-image: url("../images/next.svg") !important;
+  border-radius: 50%;
+}
+
+
+
+.swiper-button-prev::after{
+  content: "" !important;
+}
+.swiper-button-prev::after{
+  content: "" !important;
+}
+
+.swiper-button-prev{
+  color: white !important;
+  display:  none !important;
+  background-color: white;
+  width: 2.5rem !important;
+  height:2.5rem !important;
+  background-image: url("../images/prev.svg") !important;
+  border-radius: 50%;
+}
