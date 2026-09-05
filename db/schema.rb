@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_02_040316) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_05_013710) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -57,6 +57,23 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_02_040316) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "accuracy_rating"
+    t.integer "checkin_rating"
+    t.integer "cleanliness_rating"
+    t.integer "communication_rating"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.integer "final_rating"
+    t.integer "location_rating"
+    t.bigint "property_id", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.integer "value_rating"
+    t.index ["property_id"], name: "index_reviews_on_property_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "email", default: "", null: false
@@ -71,4 +88,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_02_040316) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "reviews", "properties"
+  add_foreign_key "reviews", "users"
 end
