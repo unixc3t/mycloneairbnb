@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_05_013710) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_05_090635) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -45,6 +45,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_05_013710) do
   create_table "properties", force: :cascade do |t|
     t.string "address_1"
     t.string "address_2"
+    t.decimal "average_final_rating", default: "0.0", null: false
     t.string "city"
     t.string "country"
     t.datetime "created_at", null: false
@@ -53,6 +54,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_05_013710) do
     t.string "name"
     t.integer "price_cents"
     t.string "price_currency"
+    t.integer "reviews_count", default: 0, null: false
     t.string "state"
     t.datetime "updated_at", null: false
   end
