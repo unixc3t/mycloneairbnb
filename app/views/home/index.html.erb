@@ -3,15 +3,16 @@
 <div id="property_list">
     <% @properties.each do |property| %>
         <div class="property_div">
-            <div class="property_img relative">
+            <%= link_to property_path(property.id) do %>
+            <div class="property_img relative cursor-pointer">
 
                 <div class="swiper myswiper">
                     <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper cursor-pointer">
                         <!-- Slides -->
                         <% property.images.each do |image| %>
-                            <%= image_tag image, class: "swiper-slide" %>
-                                <% end %>
+                                <%= image_tag image, class: "swiper-slide" %>
+                            <% end %>
                     </div>
                     <!-- If we need navigation buttons -->
                     <div class="swiper-button-prev"></div>
@@ -24,10 +25,8 @@
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                         stroke="currentColor" className="size-6"
                         class="block h-8 w-8 stroke-white stroke-2 <%= property.wishlisted_by?(current_user) ? 'fill-red-500' : 'fill-none' %>"
-                        data-controller="wishlist"
-                        data-user-id="<%= current_user&.id %>" 
-                        data-property-id="<%= property.id %>"
-                        data-user-logged-in="<%= user_signed_in? %>"
+                        data-controller="wishlist" data-user-id="<%= current_user&.id %>"
+                        data-property-id="<%= property.id %>" data-user-logged-in="<%= user_signed_in? %>"
                         data-wishlist-id="<%= property.wishlists.find_by(user: current_user)&.id %>"
                         data-action="click->wishlist#updateWishlistStatus"
                         data-status="<%= property.wishlisted_by?(current_user) %>">
@@ -37,6 +36,8 @@
 
                 </div>
             </div>
+
+
             <div class="property-title">
                 <h3>
                     <%= property.name %>
@@ -47,7 +48,9 @@
             </div>
             <div class="property-info">
                 <ul>
-                    <li>this infodfdfdfdfdff</li>
+                    <li>
+                        <%= property.available_dates %>
+                    </li>
                     <li>this info</li>
                     <li>this info</li>
                     <li>
@@ -55,6 +58,7 @@
                     </li>
                 </ul>
             </div>
+            <% end %>
         </div>
         <% end %>
 </div>
