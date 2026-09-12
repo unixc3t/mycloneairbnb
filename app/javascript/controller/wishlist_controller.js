@@ -2,6 +2,8 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
 
+    static targets=["icon", "text"];
+
   updateWishlistStatus() {
     const isUserLoggedIn = this.element.dataset.userLoggedIn;
 
@@ -47,9 +49,14 @@ export default class extends Controller {
     }).then(data=> {
       console.log(data);
   
-      this.element.classList.remove("fill-none");
-      this.element.classList.add("fill-red-500");
+      this.element.dataset.wishlistId = data.id;
+      this.iconTarget.classList.remove("fill-none");
+      this.iconTarget.classList.add("fill-red-500");
       this.element.dataset.status = "true";
+
+     if (this.textTarget) {
+        this.textTarget.innerText = '已收藏';
+      }
 
     } ).catch(e => {{
       console.log(e)
@@ -58,6 +65,7 @@ export default class extends Controller {
   }
 
   removePropertyFromWishlist(wishlistId){
+    console.log(wishlistId, "wishlistid")
     fetch("/api/wishlists/"+ wishlistId,{
       method: 'DELETE'
     }).then(response=>{
@@ -68,9 +76,13 @@ export default class extends Controller {
     }).then(data=> {
       console.log(data);
       this.element.dataset.wishlistId="";
-      this.element.classList.remove("fill-red-500");
-      this.element.classList.add("fill-none");
+      this.iconTarget.classList.remove("fill-red-500");
+      this.iconTarget.classList.add("fill-none");
       this.element.dataset.status = "false";
+
+       if (this.textTarget) {
+        this.textTarget.innerText = '收藏';
+      }
 
     } ).catch(e => {{
       console.log(e)
