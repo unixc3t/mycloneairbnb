@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_08_021538) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_20_015429) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "action_text_rich_texts", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.string "name", null: false
+    t.bigint "record_id", null: false
+    t.string "record_type", null: false
+    t.datetime "updated_at", null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
@@ -46,10 +56,14 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_08_021538) do
     t.string "address_1"
     t.string "address_2"
     t.decimal "average_final_rating", default: "0.0", null: false
+    t.integer "bathroom_count", default: 0
+    t.integer "bed_count", default: 0
+    t.integer "bedroom_count", default: 0
     t.string "city"
     t.string "country"
     t.datetime "created_at", null: false
     t.text "description"
+    t.integer "guest_count", default: 0
     t.string "headline"
     t.string "name"
     t.integer "price_cents"

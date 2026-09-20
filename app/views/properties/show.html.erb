@@ -26,32 +26,49 @@
   </div>
   <div class="img-detail">
     <div class="pic1">
-      <%= image_tag("pic1.jpeg") %>
+      <%= image_tag( @property.images[0] ) %>
     </div>
     <div class="pic2">
-      <%= image_tag("pic2.jpeg") %>
+      <%= image_tag( @property.images[1] ) %>
     </div>
     <div class="pic3">
-      <%= image_tag("pic3.jpeg") %>
+      <%= image_tag( @property.images[2] ) %>
     </div>
     <div class="pic4">
-      <%= image_tag("pic4.jpeg") %>
+      <%= image_tag( @property.images[3] ) %>
     </div>
     <div class="pic5">
-      <%= image_tag("pic5.jpeg") %>
+      <%= image_tag( @property.images[4] ) %>
     </div>
   </div>
   <div class="info-detail">
     <div class="info-left">
       <div class="info-detail-1">
         <div class="info-title">
-          <h1>法国法兰西岛巴黎的酒店</h1>
-          <span>评分:4.61 215 条评价</span>
+          <h1><%=@property.name%> <%= @property.country%></h1>
+          <span><%=@property.guest_count%> guests</span>
+          <span><%=@property.bathroom_count%> bathrooms</span>
+          <span><%=@property.bed_count%> beds</span>
+          <span><%=@property.bedroom_count%> bedrooms</span>
+            <% if @property.reviews_count != 0%>
+            <span>
+              评分:<%= (@property.average_final_rating).round(2) %>
+              reviews: <%= (@property.reviews_count) %> 
+
+            </span>
+            <% else %>
+            <span>0</span>
+            <% end %> 
         </div>
         <div class="info-more">
           <p>
-            这家酒店位于歌剧院区的传统奥斯曼建筑内，仍然保留着18世纪的风格，设有温馨的木板大堂、书柜和落地式大摆钟。
+            <%= @property.description.truncate(100) %>
           </p>
+          <% if @property.description.length > 100 %>
+          <div>
+            <span class="underline">show more</span>
+          </div>
+          <% end %>
         </div>
       </div>
       <div class="info-detail-2">

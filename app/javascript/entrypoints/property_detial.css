@@ -34,8 +34,13 @@
 }
 
 .pic1{
+  width: 600px;
   grid-column: 1 / span 2;
   grid-row: 1 / span 2;
+}
+.pic2 img , .pic3 img, .pic4 img, .pic5 img{
+  height:200px;
+  width:300px
 }
 
 .info-detail{
