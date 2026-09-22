@@ -61,14 +61,18 @@
             <% end %> 
         </div>
         <div class="info-more">
+          <div class="trix-content">
           <p>
-            <%= @property.description.truncate(100) %>
+            <%= @property.description.to_plain_text.truncate(100) %>
+            
           </p>
-          <% if @property.description.length > 100 %>
+          <% if @property.description.to_plain_text.length > 100 %>
           <div>
             <span class="underline">show more</span>
           </div>
           <% end %>
+          </div>
+
         </div>
       </div>
       <div class="info-detail-2">
@@ -133,4 +137,5 @@
       </div>
     </div>
   </div>
+  <%= render :partial => 'properties/reviews', :locals => {:property => @property} %>
 </div>
