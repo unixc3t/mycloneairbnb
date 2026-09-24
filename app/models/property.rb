@@ -38,6 +38,21 @@ class Property < ApplicationRecord
   end
 
   def average_cleanliness_rating
-    reviews.average(:cleanliness_rating)
+    reviews.average(:cleanliness_rating).to_f
+  end
+  def average_accuracy_rating
+    reviews.average(:accuracy_rating).to_f
+  end
+  def average_checkin_rating
+    reviews.average(:checkin_rating).to_f
+  end
+  def average_communication_rating
+    reviews.average(:communication_rating).to_f
+  end
+  def average_value_rating
+    reviews.average(:value_rating).to_f
+  end
+  def average_location_rating
+    reviews.average(:location_rating).to_f
   end
 end
