@@ -13,10 +13,33 @@ description = <<-DESCRIPTION
   <p> Escape to a hidden gem in the hear of nature with out beatufi fna darti perooty.</p>
 DESCRIPTION
 
+
 user = User.create!(
-  email: "test@gmail.com",
-  password: "123456"
+  email: "test1@test.com",
+  password: "123456",
+    name: Faker::Lorem.unique.sentence(word_count: 3),
+    address_1: Faker::Address.street_address,
+    address_2: Faker::Address.street_name,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    country: Faker::Address.country,
 )
+
+user.picture.attach(io: File.open("db/images/header.jpg"), filename: user.name)
+
+19.times do |i|
+  random_user = User.create!(
+    email: "test#{i + 2}@test.com",
+    password: "123456",
+    name: Faker::Lorem.unique.sentence(word_count: 3),
+    address_1: Faker::Address.street_address,
+    address_2: Faker::Address.street_name,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    country: Faker::Address.country,
+  )
+  random_user.picture.attach(io: File.open("db/images/header.jpg"), filename: user.name)
+end
 
 6.times do |i|
   property = Property.create!({
@@ -52,7 +75,7 @@ user = User.create!(
       value_rating: (1..5).to_a.sample,
       communication_rating: (1..5).to_a.sample,
       property: property,
-      user: user
+      user: User.all.sample
     )
   end
 end

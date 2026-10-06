@@ -91,9 +91,12 @@ margin-top: 15px;
 
 .r3-name{
   display: flex;
-  width:120px;
+  width:200px;
   align-items: center;
-  justify-content: space-between;
+}
+
+.r3-name div{
+  margin-left: 20px;  
 }
 
 .r3-star{
@@ -111,13 +114,13 @@ margin-top: 15px;
 }
 
 .show_more button{
-  margin-top: 250px;
+  margin-top: 200px;
   width: 200px;
   height: 30px;
 }
 
 @media screen and (max-width: 750px) {
 .show_more button{
-  margin-top: 450px;
+  margin-top: 400px;
 }
 }
