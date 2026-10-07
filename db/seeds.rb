@@ -14,6 +14,34 @@ description = <<-DESCRIPTION
 DESCRIPTION
 
 
+amenity_icons = [
+  { name: "air_condition", icon: "air_condition.svg", description: "Air conditioning available" },
+  { name: "balcony", icon: "balcony.svg", description: "Private balcony space" },
+  { name: "co", icon: "co.svg", description: "Carbon monoxide alarm" },
+  { name: "dedicated_work", icon: "dedicated_work.svg", description: "Dedicated workspace" },
+  { name: "essentials", icon: "essentials.svg", description: "Essential toiletries provided" },
+  { name: "garden", icon: "garden.svg", description: "Garden access" },
+  { name: "hair_dryer", icon: "hair_dryer.svg", description: "Hair dryer" },
+  { name: "hangers", icon: "hangers.svg", description: "Clothes hangers" },
+  { name: "hot_water", icon: "hot_water.svg", description: "Hot water shower" },
+  { name: "iron", icon: "iron.svg", description: "Iron available" },
+  { name: "kitchen", icon: "kitchen.svg", description: "Full kitchen" },
+  { name: "park", icon: "park.svg", description: "Nearby park" },
+  { name: "private_pool", icon: "private_pool.svg", description: "Private swimming pool" },
+  { name: "shampoo", icon: "shampoo.svg", description: "Shampoo provided" },
+  { name: "smoke", icon: "smoke.svg", description: "Smoke alarm" },
+  { name: "wifi", icon: "wifi.svg", description: "Free Wi-Fi" }
+]
+
+
+amenity_icons.each do |data|
+   amenity1 = Amenity.create!(name: data[:name], description: data[:description])
+   amenity1.icon.attach(io: File.open("app/assets/images/amenity_icons/#{data[:icon]}"), filename: amenity1.name)
+end
+
+
+
+
 user = User.create!(
   email: "test1@test.com",
   password: "123456",
@@ -64,6 +92,15 @@ end
   property.images.attach(io: File.open("db/images/property_10.png"), filename: property.name)
   property.images.attach(io: File.open("db/images/property_11.png"), filename: property.name)
   property.images.attach(io: File.open("db/images/property_12.png"), filename: property.name)
+
+  as = Set.new
+  ((10..(amenity_icons.length() -1)).to_a.sample).times do
+    a = Amenity.all.sample
+    unless as.include?(a.id)
+      property.amenities << a
+      as << a.id
+    end
+  end
 
   ((5..10).to_a.sample).times do
     Review.create!(

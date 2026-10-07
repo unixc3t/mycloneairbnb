@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_06_023414) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_06_063143) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -52,6 +52,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_06_023414) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "amenities", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "description"
+    t.string "name"
+    t.datetime "updated_at", null: false
+  end
+
   create_table "properties", force: :cascade do |t|
     t.string "address_1"
     t.string "address_2"
@@ -71,6 +78,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_06_023414) do
     t.integer "reviews_count", default: 0, null: false
     t.string "state"
     t.datetime "updated_at", null: false
+  end
+
+  create_table "property_amenities", force: :cascade do |t|
+    t.bigint "amenity_id", null: false
+    t.datetime "created_at", null: false
+    t.bigint "property_id", null: false
+    t.datetime "updated_at", null: false
+    t.index ["amenity_id", "property_id"], name: "index_property_amenities_on_amenity_id_and_property_id", unique: true
+    t.index ["amenity_id"], name: "index_property_amenities_on_amenity_id"
+    t.index ["property_id"], name: "index_property_amenities_on_property_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -132,6 +149,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_06_023414) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "property_amenities", "amenities"
+  add_foreign_key "property_amenities", "properties"
   add_foreign_key "reservations", "properties"
   add_foreign_key "reservations", "users"
   add_foreign_key "reviews", "properties"
