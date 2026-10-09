@@ -1,0 +1,18 @@
+<div class="amenities">
+  <h1 class="text-2xl pl-8">what this should offers?</h1>
+  <div class="grid lg:grid-cols-2">
+      <% amenities.limit(4).each do |amenity| %>
+        <div class="p-8 flex">
+          <%= image_tag "amenity_icons/#{amenity.icon}", class: "w-8 h-8" %>
+          <p class="pl-8 ms-4"><%= amenity.name %></p>
+        </div>
+      <%end %>
+
+<div class="w-300 h-4">
+  <% if amenities.count > 4 %>
+    <%= render 'shared/modal' , content: 'properties/amenities_modal' %>
+  <% end %>
+</div>
+  </div>
+
+</div>

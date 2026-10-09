@@ -124,3 +124,21 @@ margin-top: 15px;
   margin-top: 400px;
 }
 }
+
+.amenities{
+  padding-left: 25px;
+  height: 100px;
+  width: 450px;
+}
+
+#my_modal_1{
+  width: 400px;
+  height: 100px;
+  margin: 500px auto;
+  
+}
+
+#dialogclose{
+  position: relative;
+  margin-left: 19px;
+}

@@ -68,7 +68,9 @@
           </p>
           <% if @property.description.to_plain_text.length > 100 %>
           <div>
-            <span class="underline">show more</span>
+            <span class="underline">
+              <%= render 'shared/modal' , content: 'properties/description_modal' %>
+            </span>
           </div>
           <% end %>
           </div>
@@ -137,5 +139,6 @@
       </div>
     </div>
   </div>
+  <%= render :partial => 'properties/amenities', :locals => {:amenities => @property.amenities} %>
   <%= render :partial => 'properties/reviews', :locals => {:property => @property} %>
 </div>

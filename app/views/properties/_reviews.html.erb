@@ -156,11 +156,7 @@
 
 <div class="show_more">
 <% if property.reviews_count> 4 %>
-  <div>
-    <button type="button" class="bg-white hover:bg-gray-100 font-medium  ring-1 text-tray-900 font-bold py-2.5 px-3.5  rounded-md">
-      show more reivews
-    </button>
-  </div>
+     <%= render 'shared/modal' , content: 'properties/reviews_modal' %>
   <% end %>
 </div>
   </div>

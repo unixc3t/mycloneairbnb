@@ -1,0 +1,14 @@
+<button
+  class="rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white" 
+  onclick="my_modal_1.showModal()">show more</button>
+<dialog data-controller="modal" id="my_modal_1"
+  class="rounded-lg bg-white p-0 shadow-lg backdrop:bg-black/50 backdrop:backdrop-blur-sm">
+  <div class="modal-box w-11/12 max-w-5xl">
+    <%= render content %>
+    <div class="modal-action">
+      <form method="dialog" id="dialogclose">
+        <button class=" rounded-b-md bg-blue-500">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>

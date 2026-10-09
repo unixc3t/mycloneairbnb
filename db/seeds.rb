@@ -35,8 +35,7 @@ amenity_icons = [
 
 
 amenity_icons.each do |data|
-   amenity1 = Amenity.create!(name: data[:name], description: data[:description])
-   amenity1.icon.attach(io: File.open("app/assets/images/amenity_icons/#{data[:icon]}"), filename: amenity1.name)
+   Amenity.create!(name: data[:name], icon: data[:icon], description: data[:description])
 end
 
 
