@@ -60,7 +60,7 @@ group :development do
   gem "faker"
 end
 
-gem "tailwindcss-rails", "~> 4.6"
+gem "tailwindcss-rails", "~> 4.7"
 
 gem "devise", "~> 5.0"
 gem "money-rails"
